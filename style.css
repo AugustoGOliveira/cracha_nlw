@@ -1,0 +1,95 @@
+* {
+  margin: 0;
+}
+
+html,
+body {
+  /* Criação de variável que pode ser aplicado dentro de qualquer style abaixo */
+  --black: hsl(240, 6%, 13%);
+  --grey: hsl(240, 9%, 89%);
+
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  display: grid;
+  place-items: center;
+}
+
+main {
+  background: url(images/background.svg);
+  width: 375px;
+  height: 812px;
+
+  /* utilização da variável */
+  color: var(--grey);
+}
+
+.container {
+  max-width: 250px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.avatar {
+  width: 10rem;
+  margin: 11.5rem auto 0;
+  /* Para que não ocorra da imagem ficar com a posição absoluta sobre a página toda é necessário colocar relativo na caixa que contém a tag com posição absoluta */
+  position: relative;
+}
+
+.avatar span {
+  /* Aplica o posicionamnto absoluto dentro da página toda */
+  position: absolute;
+  top: -15px;
+  /* Eixo de profundidade */
+  z-index: 1;
+}
+
+/* Aplica o style na TAG img que está no primeiro nível, não alterando o valor nas outras */
+.avatar > img {
+  width: 10rem;
+  height: 11.5rem;
+  /* Faz com que a imagem se adapte dentro do tamanho definido acima */
+  object-fit: cover;
+  /* propriedade resposável por criar formas geométricas  */
+  clip-path: polygon(0 25%, 50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%);
+}
+
+h1 {
+  font-size: 1.5rem;
+
+  margin-top: 1.5rem;
+}
+
+a {
+  color: var(--grey);
+  /* Remove o estilo de link da tag a */
+  text-decoration: none;
+  margin-top: 0.25rem;
+
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  align-items: center;
+}
+
+p {
+  margin-top: 2rem;
+}
+
+ul {
+  margin-top: 4rem;
+  list-style: none;
+  padding: 0;
+
+  display: flex;
+  /* só é possível usar GAP e justify-content devido ao display estar como flex, só funciona se o display for flex ou grid */
+  gap: 0.5rem;
+
+  /* alinha o componente contido em ul alinhado de forma centralizado */
+  justify-content: center;
+}
